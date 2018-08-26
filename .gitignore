@@ -16,6 +16,9 @@ dist
 # Service Worker
 sw.*
 
+# Test Files
+test-build
+
 ### Created by https://www.gitignore.io/api/phpstorm ###
 
 

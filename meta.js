@@ -10,7 +10,13 @@ const {
 
 const pkg = require('./package.json');
 
+const { addTestAnswers } = require('./scenarios')
+
 module.exports = {
+  metalsmith: {
+    // When running tests for the template, this adds answers for the selected scenario
+    before: addTestAnswers
+  },
   helpers: {
     raw: function(options) {
       return options.fn(this)
@@ -19,26 +25,31 @@ module.exports = {
 
   prompts: {
     name: {
+      when: 'isNotTest',
       'type': 'string',
       'required': true,
       'message': 'Project name'
     },
     description: {
+      when: 'isNotTest',
       'type': 'string',
       'required': false,
       'message': 'Project description',
       'default': 'NCViewer\'s Vuetify + Nuxt Template'
     },
     author: {
+      when: 'isNotTest',
       'type': 'string',
       'message': 'Author'
     },
     alacarte: {
+      when: 'isNotTest',
       'type': 'confirm',
       'message': 'Use a-la-carte components (reduces build size)?',
       'default': true
     },
     autoInstall: {
+      when: 'isNotTest',
       type: 'list',
       message: 'Should we run `npm install` for you after the project has been created? (recommended)',
       choices: [

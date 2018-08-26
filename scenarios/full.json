@@ -1,0 +1,8 @@
+{
+  "noEscape": true,
+  "name": "full-test",
+  "description": "A Vue.js project",
+  "author": "Buddy",
+  "build": "runtime",
+  "autoInstall": false
+}
