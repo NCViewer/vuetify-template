@@ -1,0 +1,13 @@
+{
+  "name": "vuetify-template",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Nuxt.js + Vuetify.js starter project template.",
+  "scripts": {
+    "test": "cross-env VUE_TEMPL_TEST=full vue init . test-build"
+  },
+  "devDependencies": {
+    "@vue/cli": "^3.0.1",
+    "cross-env": "^5.2.0"
+  }
+}
