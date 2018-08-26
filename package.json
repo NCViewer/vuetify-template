@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "description": "Nuxt.js + Vuetify.js starter project template.",
-  "scripts": {
-  },
+  "scripts": {},
   "devDependencies": {
-    "vue-cli": "^2.8.1"
+    "@vue/cli": "^3.0.1"
   }
 }
