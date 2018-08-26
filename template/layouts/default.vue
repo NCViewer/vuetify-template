@@ -18,10 +18,7 @@
         <right-menu />
 
         <!-- Footer -->
-        <v-footer :fixed="fixedFooter" app>
-            <v-flex px-3>
-                <span v-text="`© ${ new Date().getFullYear() }`" />
-        </v-footer>
+        <footer />
 
     </v-app>
 </template>
@@ -32,12 +29,14 @@
     import toolbar from '~/components/toolbar'
     import LeftMenu from '~/components/LeftMenu'
     import RightMenu from '~/components/RightMenu'
+    import Footer from '~/components/Footer'
 
     export default {
         components: {
             toolbar,
             LeftMenu,
             RightMenu,
+            Footer,
         },
 
         data () {
@@ -53,7 +52,6 @@
         computed: {
             ...mapState({
                 dark: 'dark',
-                fixedFooter: 'fixedFooter',
             }),
         },
     }
