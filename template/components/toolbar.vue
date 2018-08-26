@@ -47,13 +47,13 @@
             }
         },
 
-        methods: {
+        methods: {)(*@)
             ...mapMutations({
                 toggleLeftMenu: 'TOGGLE_showLeftMenu',
                 toggleRightMenu: 'TOGGLE_showRightMenu',
 
                 toggleDark: 'TOGGLE_dark',
-                
+
                 toggleMiniMenu: 'TOGGLE_miniMenu',
                 toggleClipMenu: 'TOGGLE_clipMenu',
 
