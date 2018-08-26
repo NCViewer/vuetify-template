@@ -4,5 +4,5 @@
   "description": "A Vue.js project",
   "author": "Buddy",
   "build": "runtime",
-  "autoInstall": false
+  "autoInstall": true
 }
