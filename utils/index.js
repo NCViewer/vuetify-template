@@ -25,10 +25,16 @@ exports.sortDependencies = function sortDependencies(data) {
  * @param {string} cwd Path of the created project directory
  * @param {object} data Data from questionnaire
  */
-exports.installDependencies = function installDependencies(cwd, executable = 'npm', color) {
+exports.installDependencies = function installDependencies(
+    cwd,
+    executable = 'npm',
+    color
+) {
     console.log(`\n\n# ${color('Installing project dependencies ...')}`);
-    console.log(`# ${color('========================')}\n`);
-    return runCommand(executable, ['install'], { cwd })
+    console.log('# ========================\n');
+    return runCommand(executable, ['install'], {
+        cwd,
+    })
 };
 
 /**
@@ -48,7 +54,9 @@ exports.runLintFix = function runLintFix(cwd, data, color) {
             data.autoInstall === 'npm'
                 ? ['run', 'lint', '--', '--fix']
                 : ['run', 'lint', '--fix'];
-        return runCommand(data.autoInstall, args, { cwd });
+        return runCommand(data.autoInstall, args, {
+            cwd,
+        })
     }
     return Promise.resolve()
 };
@@ -65,7 +73,11 @@ exports.printMessage = function printMessage(data, { green, cyan }) {
 
 To get started:
 
-  ${cyan(`${ data.inPlace ? '' : `cd ${ data.destDirName }\n  ` }${ installMsg(data) }${ lintMsg(data) }npm run dev`)}
+  ${cyan(
+        `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
+            data
+        )}${lintMsg(data)}npm run dev`
+    )}
   
 Documentation can be found at https://vuejs-templates.github.io/
 `;
@@ -117,7 +129,9 @@ function runCommand(cmd, args, options) {
             )
         );
 
-        spwan.on('exit', () => { resolve() });
+        spwan.on('exit', () => {
+            resolve()
+        })
     })
 }
 
