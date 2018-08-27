@@ -12,7 +12,7 @@ export const Types = {
 
 export const state = () => ({
     [Types.states.dark]: false,
-    [Types.states.showLeftMenu]: false,
+    [Types.states.showLeftMenu]: true,
     [Types.states.showRightMenu]: false,
     [Types.states.miniMenu]: false,
     [Types.states.clipMenu]: false,

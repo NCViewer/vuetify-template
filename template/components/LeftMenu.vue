@@ -4,13 +4,13 @@
         :clipped="clipMenu"
         :value = "showLeftMenu"
         @input="updateLeftMenu"
+        :mobile-break-point="480"
         fixed app>
         <v-list>
             <v-list-tile
-                :to="item.to"
                 v-for="(item, i) in items"
                 :key="i"
-                router exact>
+                router exact :to="item.to">
 
                 <v-list-tile-action>
                     <v-icon v-html="item.icon" />

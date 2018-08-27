@@ -4,6 +4,8 @@
         dense dark fixed app>
         <v-toolbar-side-icon @click="toggleLeftMenu" />
 
+        <v-toolbar-title mx-0 v-text="title" router exact :to="`/`" />
+
         <v-btn icon @click.stop="toggleMiniMenu">
             <v-icon v-html="miniMenu ? 'chevron_right' : 'chevron_left'" />
         </v-btn>
@@ -15,8 +17,6 @@
         <v-btn icon @click.stop="toggleFixedFooter">
             <v-icon>remove</v-icon>
         </v-btn>
-
-        <v-toolbar-title v-text="title" />
 
         <v-spacer />
 
@@ -44,7 +44,7 @@
 
         data() {
             return {
-                // clipped: false,
+
             }
         },
 
@@ -68,6 +68,5 @@
                 clipped: Types.states.clipMenu,
             }),
         },
-
     }
 </script>
