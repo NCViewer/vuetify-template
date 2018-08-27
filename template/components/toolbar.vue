@@ -33,6 +33,8 @@
 <script>
     import { mapMutations, mapState } from 'vuex'
 
+    import { Types } from '~/store'
+
     export default {
         name: 'toolbar',
 
@@ -42,28 +44,28 @@
 
         data() {
             return {
-                miniVariant: false,
-                clipped: false,
+                // clipped: false,
             }
         },
 
         methods: {
             ...mapMutations({
-                toggleLeftMenu: 'TOGGLE_showLeftMenu',
-                toggleRightMenu: 'TOGGLE_showRightMenu',
+                toggleLeftMenu: Types.mutations.toggleLeftMenu,
+                toggleRightMenu: Types.mutations.toggleRightMenu,
 
-                toggleDark: 'TOGGLE_dark',
-                
-                toggleMiniMenu: 'TOGGLE_miniMenu',
-                toggleClipMenu: 'TOGGLE_clipMenu',
+                toggleDark: Types.mutations.toggleDark,
 
-                toggleFixedFooter: 'TOGGLE_fixedFooter',
+                toggleMiniMenu: Types.mutations.toggleMiniMenu,
+                toggleClipMenu: Types.mutations.toggleClipMenu,
+
+                toggleFixedFooter: Types.mutations.togglefixedFooter,
             }),
         },
 
         computed: {
             ...mapState({
-                miniMenu: 'miniMenu',
+                miniMenu: Types.states.miniMenu,
+                clipped: Types.states.clipMenu,
             }),
         },
 

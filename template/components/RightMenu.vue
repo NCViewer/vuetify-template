@@ -21,6 +21,8 @@
 <script>
     import { mapMutations, mapState } from 'vuex'
 
+    import { Types } from '~/store'
+
     export default {
         name: 'RightMenu',
 
@@ -32,15 +34,15 @@
 
         methods: {
             ...mapMutations({
-                setRightMenu: 'SET_showRightMenu',
+                setRightMenu: Types.mutations.setRightMenu,
             }),
             updateRightMenu (state) { if (!state) this.setRightMenu(false) },
         },
 
         computed: {
             ...mapState({
-                showRightMenu: 'showRightMenu',
-                clipMenu: 'clipMenu',
+                showRightMenu: Types.states.showRightMenu,
+                clipMenu: Types.states.clipMenu,
             }),
         },
     }

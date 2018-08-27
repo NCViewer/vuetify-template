@@ -28,6 +28,8 @@
 <script>
     import { mapMutations, mapState } from 'vuex'
 
+    import { Types } from '~/store'
+
     export default {
         name: 'LeftMenu',
 
@@ -42,16 +44,16 @@
 
         methods: {
             ...mapMutations({
-                setLeftMenu: 'SET_showLeftMenu',
+                setLeftMenu: Types.mutations.setLeftMenu,
             }),
             updateLeftMenu (state) { if (!state) this.setLeftMenu(false) },
         },
 
         computed: {
             ...mapState({
-                showLeftMenu: 'showLeftMenu',
-                miniMenu: 'miniMenu',
-                clipMenu: 'clipMenu',
+                showLeftMenu: Types.states.showLeftMenu,
+                miniMenu: Types.states.miniMenu,
+                clipMenu: Types.states.clipMenu,
             }),
         },
     }

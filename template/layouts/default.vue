@@ -18,7 +18,7 @@
         <right-menu />
 
         <!-- Footer -->
-        <footer />
+        <page-footer />
 
     </v-app>
 </template>
@@ -26,17 +26,19 @@
 <script>
     import { mapState, mapMutations } from 'vuex'
 
+    import { Types } from '~/store'
+
     import toolbar from '~/components/toolbar'
     import LeftMenu from '~/components/LeftMenu'
     import RightMenu from '~/components/RightMenu'
-    import Footer from '~/components/Footer'
+    import PageFooter from '~/components/Footer'
 
     export default {
         components: {
             toolbar,
             LeftMenu,
             RightMenu,
-            Footer,
+            PageFooter,
         },
 
         data () {
@@ -51,7 +53,7 @@
 
         computed: {
             ...mapState({
-                dark: 'dark',
+                dark: Types.states.dark,
             }),
         },
     }

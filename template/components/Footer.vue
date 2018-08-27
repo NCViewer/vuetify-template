@@ -1,7 +1,7 @@
 <template>
-    <v-footer :fixed="fixedFooter" :dark="!dark" app>
+    <v-footer :fixed="fixedFooter" dark app>
         <v-flex px-3>
-            <span v-text="`© ${ year }`" />
+            <span v-text="`© ${ year }`"></span>
         </v-flex>
     </v-footer>
 </template>
@@ -20,7 +20,6 @@
 
         computed: {
             ...mapState({
-                dark: 'dark',
                 fixedFooter: 'fixedFooter',
             }),
         },
