@@ -1,23 +1,34 @@
 import { toggle, set } from '../assets/js/helpers';
 
+import * as mutationTypes from './mutation-types'
+import * as states from './states'
+
+
+export const Types = {
+    mutations: mutationTypes,
+    states: states,
+};
+
+
 export const state = () => ({
-    dark: false,
-    showLeftMenu: false,
-    showRightMenu: false,
-    miniMenu: false,
-    clipMenu: false,
-    fixedFooter: true,
+    [Types.states.dark]: false,
+    [Types.states.showLeftMenu]: true,
+    [Types.states.showRightMenu]: false,
+    [Types.states.miniMenu]: false,
+    [Types.states.clipMenu]: false,
+    [Types.states.fixedFooter]: true,
 });
 
+
 export const mutations = {
-    SET_showLeftMenu: set('showLeftMenu'),
-    SET_showRightMenu: set('showRightMenu'),
+    [ Types.mutations.setLeftMenu ] :       set(Types.states.showLeftMenu),
+    [ Types.mutations.setRightMenu ] :      set(Types.states.showRightMenu),
 
-    TOGGLE_showLeftMenu: toggle('showLeftMenu'),
-    TOGGLE_showRightMenu: toggle('showRightMenu'),
+    [ Types.mutations.toggleLeftMenu ] :    toggle(Types.states.showLeftMenu),
+    [ Types.mutations.toggleRightMenu ] :   toggle(Types.states.showRightMenu),
 
-    TOGGLE_dark: toggle('dark'),
-    TOGGLE_miniMenu: toggle('miniMenu'),
-    TOGGLE_clipMenu: toggle('clipMenu'),
-    TOGGLE_fixedFooter: toggle('fixedFooter'),
+    [ Types.mutations.toggleDark ] :        toggle(Types.states.dark),
+    [ Types.mutations.toggleMiniMenu ] :    toggle(Types.states.miniMenu),
+    [ Types.mutations.toggleClipMenu ] :    toggle(Types.states.clipMenu),
+    [ Types.mutations.togglefixedFooter ] : toggle(Types.states.fixedFooter),
 };

@@ -4,6 +4,8 @@
         dense dark fixed app>
         <v-toolbar-side-icon @click="toggleLeftMenu" />
 
+        <v-toolbar-title mx-0 v-text="title" router exact :to="`/`" />
+
         <v-btn icon @click.stop="toggleMiniMenu">
             <v-icon v-html="miniMenu ? 'chevron_right' : 'chevron_left'" />
         </v-btn>
@@ -15,8 +17,6 @@
         <v-btn icon @click.stop="toggleFixedFooter">
             <v-icon>remove</v-icon>
         </v-btn>
-
-        <v-toolbar-title v-text="title" />
 
         <v-spacer />
 
@@ -33,6 +33,8 @@
 <script>
     import { mapMutations, mapState } from 'vuex'
 
+    import { Types } from '~/store'
+
     export default {
         name: 'toolbar',
 
@@ -42,30 +44,29 @@
 
         data() {
             return {
-                miniVariant: false,
-                clipped: false,
+
             }
         },
 
         methods: {
             ...mapMutations({
-                toggleLeftMenu: 'TOGGLE_showLeftMenu',
-                toggleRightMenu: 'TOGGLE_showRightMenu',
+                toggleLeftMenu: Types.mutations.toggleLeftMenu,
+                toggleRightMenu: Types.mutations.toggleRightMenu,
 
-                toggleDark: 'TOGGLE_dark',
-                
-                toggleMiniMenu: 'TOGGLE_miniMenu',
-                toggleClipMenu: 'TOGGLE_clipMenu',
+                toggleDark: Types.mutations.toggleDark,
 
-                toggleFixedFooter: 'TOGGLE_fixedFooter',
+                toggleMiniMenu: Types.mutations.toggleMiniMenu,
+                toggleClipMenu: Types.mutations.toggleClipMenu,
+
+                toggleFixedFooter: Types.mutations.togglefixedFooter,
             }),
         },
 
         computed: {
             ...mapState({
-                miniMenu: 'miniMenu',
+                miniMenu: Types.states.miniMenu,
+                clipped: Types.states.clipMenu,
             }),
         },
-
     }
 </script>
