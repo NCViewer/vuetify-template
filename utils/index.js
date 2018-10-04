@@ -67,9 +67,9 @@ exports.runLintFix = function runLintFix(cwd, data, color) {
  */
 exports.printMessage = function printMessage(data, { green, cyan }) {
     const message = `
-# ${green('----------------------------------//')}
-# ${green('Project initialization finished! //')}
-# ${green('--------------------------------//')}
+# ${green('-----------------------------------//')}
+# ${green(' Project initialization finished! //')}
+# ${green('---------------------------------//')}
 
 To get started:
 
