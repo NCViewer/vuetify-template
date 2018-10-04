@@ -1,9 +1,4 @@
-{{#alacarte}}
-const nodeExternals = require('webpack-node-externals')
-const resolve = (dir) => require('path').join(__dirname, dir)
-{{/alacarte}}
-
-module.exports = {
+exports default {
     // Headers of the page
     head: {
         title: 'toollibary-nuxt',
@@ -28,12 +23,13 @@ module.exports = {
     // Build configuration
     build: {
         {{#alacarte}}
+        transpile: [/^vuetify/],
         babel: {
             plugins: [
-                ["transform-imports", {
-                    "vuetify": {
-                        "transform": "vuetify/es5/components/${member}",
-                        "preventFullImport": true
+                ['transform-imports', {
+                    'vuetify': {
+                        'transform': 'vuetify/es5/components/${member}',
+                        'preventFullImport': true
                     },
                 }],
             ],
@@ -46,22 +42,22 @@ module.exports = {
         // cssSourceMap: false, // fixes 404 error
 
         // Run ESLint on save
-        extend (config, ctx) {
-            if (ctx.isDev && ctx.isClient) {
+            extend (config, {isDev}) {
+            if (isDev && process.client) {
                 config.module.rules.push({
                     enforce: 'pre',
                     test: /\.(js|vue)$/,
                     loader: 'eslint-loader',
                     exclude: /(node_modules)/
-                });
+                })
             }
             {{#alacarte}}
-            if (ctx.isServer) {
+            if (process.server) {
                 config.externals = [
                     nodeExternals({
                         whitelist: [/^vuetify/]
-                    }),
-                ];
+                    })
+                ]
             }
             {{/alacarte}}
         }
