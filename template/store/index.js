@@ -5,18 +5,18 @@ import * as states from './states'
 
 
 export const Types = {
-    mutations: mutationTypes,
     states: states,
+    mutations: mutationTypes,
 };
 
 
 export const state = () => ({
-    [Types.states.dark]: false,
-    [Types.states.showLeftMenu]: true,
+    [Types.states.dark]:          false,
+    [Types.states.showLeftMenu]:  true,
     [Types.states.showRightMenu]: false,
-    [Types.states.miniMenu]: false,
-    [Types.states.clipMenu]: false,
-    [Types.states.fixedFooter]: true,
+    [Types.states.miniMenu]:      false,
+    [Types.states.clipMenu]:      false,
+    [Types.states.fixedFooter]:   true,
 });
 
 

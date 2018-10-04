@@ -10,7 +10,7 @@ const {
 
 const pkg = require('./package.json');
 
-const { addTestAnswers } = require('./scenarios')
+const { addTestAnswers } = require('./scenarios');
 
 module.exports = {
   metalsmith: {
