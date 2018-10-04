@@ -12,7 +12,11 @@ export default {
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
         ]
     },
-    plugins: ['~/plugins/vuetify.js'],
+
+    plugins: [
+        '~/plugins/vuetify.js'
+    ],
+
     css: [
         '~/assets/style/app.styl',
     ],
@@ -36,13 +40,14 @@ export default {
         },
 
         {{/alacarte}}
-        vendor: ['~/plugins/vuetify.js'],
+
+        // vendor: ['~/plugins/vuetify.js'],
 
         extractCSS: true,
         // cssSourceMap: false, // fixes 404 error
 
         // Run ESLint on save
-            extend (config, {isDev}) {
+        extend (config, {isDev}) {
             if (isDev && process.client) {
                 config.module.rules.push({
                     enforce: 'pre',
@@ -51,15 +56,6 @@ export default {
                     exclude: /(node_modules)/
                 })
             }
-            {{#alacarte}}
-            if (process.server) {
-                config.externals = [
-                    nodeExternals({
-                        whitelist: [/^vuetify/]
-                    })
-                ]
-            }
-            {{/alacarte}}
         }
-    }
+    },
 }
