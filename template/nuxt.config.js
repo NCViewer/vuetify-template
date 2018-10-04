@@ -1,4 +1,4 @@
-exports default {
+export default {
     // Headers of the page
     head: {
         title: 'toollibary-nuxt',
